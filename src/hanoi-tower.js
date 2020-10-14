@@ -6,8 +6,3 @@ module.exports = function calculateHanoi(disksNumber, turnsSpeed) {
 
   return {turns: turnsCount, seconds: speedCount }
 };
-
-//module.exports = function calculateHanoi(/* disksNumber, turnsSpeed */) {
-  //throw new CustomError('Not implemented');
-  // remove line with error and write your code here
-//};
