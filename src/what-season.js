@@ -13,9 +13,3 @@ module.exports = function getSeason(date) {
     return 'fall';
   } 
 };
-
-
-//module.exports = function getSeason(/* date */) {
-  //throw new CustomError('Not implemented');
-  // remove line with error and write your code here
-//};
