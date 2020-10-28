@@ -1,7 +1,7 @@
 const CustomError = require("../extensions/custom-error");
 
 module.exports = function repeater(str, options) {
-    let bigSeparator = '';
+        let bigSeparator = '';
         let extendedStr = '';
         const defaultAdditionSeparator = '|';
         const defaultSeparator = '+';
