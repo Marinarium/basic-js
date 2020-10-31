@@ -10,10 +10,13 @@ class VigenereCipheringMachine {
   }
 
   encrypt(message, key) {
+    if (!message || !key){
+      throw Error("error!");
+    } 
+
     function symbolOrder(a){
         return a.toUpperCase().charCodeAt(0) - 65;
     }
-
 
     let messageArr = message.split('');
     let numbersOfMessage = [];
@@ -29,7 +32,7 @@ class VigenereCipheringMachine {
     let numbersOfKey =[]
     let j = 0;
     numbersOfMessage.forEach(function (item, i) {
-        if (isNaN(item) || item === " ") {
+        if (typeof item === 'string' || item === " ") {
             numbersOfKey.push(item);
         } else {
             numbersOfKey.push(symbolOrder(keyArr[j]));
@@ -39,7 +42,7 @@ class VigenereCipheringMachine {
 
     let digitalCode = [];
     numbersOfMessage.forEach(function (item, i) {
-        if (isNaN(item) || item === " ") {
+        if (typeof item === 'string' || item === " ") {
             digitalCode.push(item);
         } else if((item + numbersOfKey[i]) >= 26) {
             digitalCode.push((item + numbersOfKey[i]) - 26);
@@ -50,7 +53,7 @@ class VigenereCipheringMachine {
 
     let cipherArr = [];
     digitalCode.forEach(function (item) {
-        if (isNaN(item) || item === " ") {
+        if (typeof item === 'string' || item === " ") {
             cipherArr.push(item);
         } else {
             cipherArr.push(String.fromCharCode(item + 65));
@@ -64,6 +67,10 @@ class VigenereCipheringMachine {
   }    
   
   decrypt(message, key) {
+    if (!message || !key){
+      throw Error("error!");
+    } 
+
     function symbolOrder(a){
       return a.toUpperCase().charCodeAt(0) - 65;
     }
@@ -83,7 +90,7 @@ class VigenereCipheringMachine {
     let numbersOfKey =[]
     let j = 0;
     numbersOfMessage.forEach(function (item, i) {
-        if (isNaN(item) || item === " ") {
+        if (typeof item === 'string' || item === " ") {
             numbersOfKey.push(item);
         } else {
             numbersOfKey.push(symbolOrder(keyArr[j]));
@@ -93,7 +100,7 @@ class VigenereCipheringMachine {
 
     let digitalCode = [];
     numbersOfMessage.forEach(function (item, i) {
-        if (isNaN(item) || item === " ") {
+        if (typeof item === 'string' || item === " ") {
             digitalCode.push(item);
         } else if((item - numbersOfKey[i]) < 0) {
             digitalCode.push(item + 26 - numbersOfKey[i]);
@@ -104,7 +111,7 @@ class VigenereCipheringMachine {
 
     let cipherArr = [];
     digitalCode.forEach(function (item) {
-        if (isNaN(item) || item === " ") {
+        if (typeof item === 'string' || item === " ") {
             cipherArr.push(item);
         } else {
             cipherArr.push(String.fromCharCode(item + 65));
