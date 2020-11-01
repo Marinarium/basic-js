@@ -1,11 +1,11 @@
 const CustomError = require("../extensions/custom-error");
 
 class VigenereCipheringMachine {
-  constructor(typeMachine){
-    if (typeMachine === false) {
-      this.typeMachine = 'direct';
+  constructor(type){
+    if (type === false) {
+      this.type = 'direct';
     } else {
-      this.typeMachine = 'reverse'
+      this.type = 'reverse'
     }
   }
 
@@ -60,10 +60,7 @@ class VigenereCipheringMachine {
         }
     });
 
-    let cipher = cipherArr.join('');
-
-
-    return cipher;
+    return this.type === 'direct' ? cipherArr.reverse().join('') : cipherArr.join('');
   }    
   
   decrypt(message, key) {
@@ -118,10 +115,7 @@ class VigenereCipheringMachine {
         }
     });
 
-    let cipher = cipherArr.join('');
-
-
-    return cipher;
+    return this.type === 'direct' ? cipherArr.reverse().join('') : cipherArr.join('');
   }
 }
 
